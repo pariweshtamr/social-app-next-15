@@ -5,7 +5,7 @@ export const AddPost = () => {
     <div className="p-4 bg-white rounded-lg shadow-md flex gap-4 justify-between text-sm">
       {/* avatar */}
       <Image
-        src={""}
+        src={"/noAvatar.png"}
         width={48}
         height={48}
         alt="avatar"

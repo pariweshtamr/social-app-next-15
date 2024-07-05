@@ -6,7 +6,7 @@ export const Comments = () => {
       {/* WRITE */}
       <div className="flex items-center gap-4">
         <Image
-          src={""}
+          src={"/noAvatar.png"}
           alt=""
           className="w-8 h-8 rounded-full"
           width={32}
@@ -34,7 +34,7 @@ export const Comments = () => {
           {/* avatar */}
           <div className="">
             <Image
-              src={""}
+              src={"/noAvatar.png"}
               alt=""
               className="w-10 h-10 rounded-full"
               width={40}

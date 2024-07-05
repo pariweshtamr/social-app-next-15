@@ -10,7 +10,6 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs"
-import { Oval } from "react-loader-spinner"
 import Image from "next/image"
 import { FaSearch } from "react-icons/fa"
 

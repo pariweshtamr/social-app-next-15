@@ -10,7 +10,7 @@ export const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src={""}
+            src={"/noAvatar.png"}
             alt=""
             width={80}
             height={80}
@@ -20,7 +20,7 @@ export const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src={""}
+            src={"/noAvatar.png"}
             alt=""
             width={80}
             height={80}
@@ -30,7 +30,7 @@ export const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src={""}
+            src={"/noAvatar.png"}
             alt=""
             width={80}
             height={80}
@@ -40,7 +40,7 @@ export const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src={""}
+            src={"/noAvatar.png"}
             alt=""
             width={80}
             height={80}
@@ -50,7 +50,7 @@ export const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src={""}
+            src={"/noAvatar.png"}
             alt=""
             width={80}
             height={80}
@@ -60,7 +60,7 @@ export const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src={""}
+            src={"/noAvatar.png"}
             alt=""
             width={80}
             height={80}
@@ -70,7 +70,7 @@ export const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src={""}
+            src={"/noAvatar.png"}
             alt=""
             width={80}
             height={80}
@@ -80,7 +80,7 @@ export const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src={""}
+            src={"/noAvatar.png"}
             alt=""
             width={80}
             height={80}
@@ -90,7 +90,7 @@ export const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src={""}
+            src={"/noAvatar.png"}
             alt=""
             width={80}
             height={80}
@@ -100,7 +100,7 @@ export const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src={""}
+            src={"/noAvatar.png"}
             alt=""
             width={80}
             height={80}
@@ -110,7 +110,7 @@ export const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src={""}
+            src={"/noAvatar.png"}
             alt=""
             width={80}
             height={80}

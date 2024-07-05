@@ -8,7 +8,7 @@ export const Post = () => {
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-4">
           <Image
-            src={""}
+            src={"/noAvatar.png"}
             alt=""
             width={40}
             height={40}
@@ -20,8 +20,13 @@ export const Post = () => {
       </div>
       {/* desc */}
       <div className="flex flex-col gap-4">
-        <div className="w-full min-h-96">
-          <Image src={""} alt="" fill className="object-cover rounded-md" />
+        <div className="w-full min-h-96 relative">
+          <Image
+            src={"/noAvatar.png"}
+            alt=""
+            fill
+            className="object-cover rounded-md"
+          />
         </div>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas, nobis
