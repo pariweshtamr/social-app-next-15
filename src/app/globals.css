@@ -9,3 +9,9 @@
 .scrollbar-hide {
   scrollbar-width: none;
 }
+
+* {
+  overscroll-behavior: none;
+  outline-color: black;
+  outline-offset: 3px;
+}

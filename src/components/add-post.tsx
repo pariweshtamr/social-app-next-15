@@ -1,6 +1,8 @@
+import { auth } from "@clerk/nextjs/server"
 import Image from "next/image"
 
 export const AddPost = () => {
+  const { userId } = auth()
   return (
     <div className="p-4 bg-white rounded-lg shadow-md flex gap-4 justify-between text-sm">
       {/* avatar */}
@@ -13,10 +15,10 @@ export const AddPost = () => {
       />
       {/* post */}
       <div className="flex-1">
-        <div className="flex gap-4">
+        <form action={""} className="flex gap-4">
           <textarea
-            name=""
-            id=""
+            name="desc"
+            id="desc"
             placeholder="What's on your mind?"
             className="bg-slate-100 rounded-md flex-1 p-2"
           ></textarea>
@@ -27,7 +29,7 @@ export const AddPost = () => {
             alt="emoji"
             className="w-5 h-5 cursor-pointer self-end"
           />
-        </div>
+        </form>
         {/* options */}
         <div className="flex flex-wrap items-center gap-4 mt-4 text-gray-400">
           <div className="flex items-center gap-2 cursor-pointer">

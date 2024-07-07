@@ -1,7 +1,7 @@
 import Link from "next/link"
-import { ProfileCard } from "./profile-card"
 import Image from "next/image"
-import { Advertisement } from "./advertisement"
+import { ProfileCard } from "./profile-card"
+import { Advertisement } from "../advertisement"
 
 const links = [
   {

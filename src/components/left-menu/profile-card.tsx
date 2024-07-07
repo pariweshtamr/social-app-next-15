@@ -1,12 +1,37 @@
+import { prisma } from "@/lib/client"
+import { auth } from "@clerk/nextjs/server"
 import Image from "next/image"
+import Link from "next/link"
 
-export const ProfileCard = () => {
+export const ProfileCard = async () => {
+  const { userId } = auth()
+
+  if (!userId) return null
+  const user = await prisma.user.findFirst({
+    where: {
+      id: userId,
+    },
+    include: {
+      _count: {
+        select: {
+          followers: true,
+        },
+      },
+    },
+  })
+
+  if (!user) return null
   return (
     <div className="p-4 bg-white shadow-md rounded-lg text-sm flex flex-col gap-6">
       <div className="h-20 relative">
-        <Image fill src={""} alt="" className="rounded-md object-cover" />
         <Image
-          src={""}
+          fill
+          src={user.cover ?? "/noAvatar.png"}
+          alt="cover"
+          className="rounded-md object-cover"
+        />
+        <Image
+          src={user.avatar ?? "/noAvatar.png"}
           alt=""
           height={48}
           width={48}
@@ -14,7 +39,11 @@ export const ProfileCard = () => {
         />
       </div>
       <div className="h-24 py-3 flex flex-col gap-2 items-center">
-        <span className="font-semibold">Pariwesh Tamrakar</span>
+        <span className="font-semibold">
+          {user.name && user.surname
+            ? user.name + " " + user.surname
+            : user.username}
+        </span>
         <div className="flex items-center gap-4">
           <div className="flex">
             <Image
@@ -39,11 +68,16 @@ export const ProfileCard = () => {
               className="rounded-full object-cover w-3 h-3"
             />
           </div>
-          <span className="text-xs text-gray-500">500 Followers</span>
+          <span className="text-xs text-gray-500">
+            {user._count.followers} Followers
+          </span>
         </div>
-        <button className="text-white text-xs rounded-md p-2 bg-green-600">
+        <Link
+          href={`/profile/${user.username}`}
+          className="text-white text-xs rounded-md p-2 bg-green-600"
+        >
           My Profile
-        </button>
+        </Link>
       </div>
     </div>
   )
