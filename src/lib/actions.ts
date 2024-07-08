@@ -146,16 +146,26 @@ export const declineFollowRequest = async (userId: string) => {
   }
 }
 
-export const updateProfile = async (formData: FormData) => {
+export const updateProfile = async (
+  prevState: any,
+  payload: { formData: FormData; cover: string }
+) => {
+  const { formData, cover } = payload
   const { userId } = auth()
   if (!userId) {
-    throw new Error("User is not authenticated!")
+    return {
+      ...prevState,
+      zodErrors: null,
+      serverError: null,
+      success: false,
+      message: "Oops! Something went wrong. Please try again.",
+    }
   }
 
   const fields = Object.fromEntries(formData)
 
-  const filteredFields = Object.fromEntries(fields).filter(
-    ([_, value]) => value !== ""
+  const filteredFields = Object.fromEntries(
+    Object.entries(fields).filter(([_, value]) => value !== "")
   )
 
   const Profile = z.object({
@@ -169,15 +179,21 @@ export const updateProfile = async (formData: FormData) => {
     website: z.string().max(60).optional(),
   })
 
-  const validatedFields = Profile.safeParse(filteredFields)
+  const validatedFields = Profile.safeParse({ cover, ...filteredFields })
 
   if (!validatedFields.success) {
     const errors = validatedFields.error.flatten().fieldErrors
-    return errors
+    return {
+      ...prevState,
+      zodErrors: errors,
+      serverError: null,
+      success: false,
+      message: "Missing fields! Failed to update profile!",
+    }
   }
 
   try {
-    await prisma.user.update({
+    const responseData = await prisma.user.update({
       where: {
         id: userId,
       },
@@ -185,5 +201,23 @@ export const updateProfile = async (formData: FormData) => {
         ...validatedFields.data,
       },
     })
-  } catch (error) {}
+
+    return {
+      ...prevState,
+      zodErrors: null,
+      serverError: null,
+      message: "Profile updated successfully!",
+      success: true,
+    }
+  } catch (error) {
+    console.log(error)
+    return {
+      ...prevState,
+      zodErrors: null,
+      serverError: error,
+      message: "Oops! Something went wrong. Please try again.",
+      data: null,
+      success: false,
+    }
+  }
 }

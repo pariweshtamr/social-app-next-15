@@ -47,21 +47,21 @@ export const ProfileCard = async () => {
         <div className="flex items-center gap-4">
           <div className="flex">
             <Image
-              src={""}
+              src={"/noAvatar.png"}
               alt=""
               height={12}
               width={12}
               className="rounded-full object-cover w-3 h-3"
             />
             <Image
-              src={""}
+              src={"/noAvatar.png"}
               alt=""
               height={12}
               width={12}
               className="rounded-full object-cover w-3 h-3"
             />
             <Image
-              src={""}
+              src={"/noAvatar.png"}
               alt=""
               height={12}
               width={12}

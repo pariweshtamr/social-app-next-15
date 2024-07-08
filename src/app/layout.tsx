@@ -7,7 +7,7 @@ import { ClerkProvider } from "@clerk/nextjs"
 const nunito = Nunito_Sans({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Lama Dev Social Media App",
+  title: "FriendHive: Social Media App",
   description: "Social media app built with Next.js",
 }
 
